@@ -522,6 +522,7 @@ class CAK47: public CBasePlayerWeapon
 {
 public:
 	virtual void Spawn();
+	virtual void ItemPostFrame();
 	virtual void Precache();
 	virtual int GetItemInfo(ItemInfo *p);
 	virtual BOOL Deploy();
