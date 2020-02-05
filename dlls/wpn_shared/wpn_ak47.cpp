@@ -185,3 +185,14 @@ void CAK47::WeaponIdle()
 		SendWeaponAnim(AK47_IDLE1, UseDecrement() != FALSE);
 	}
 }
+
+void CAK47::ItemPostFrame()
+{
+	if (m_pPlayer->pev->button & IN_USE)
+	{
+		SendWeaponAnim(AK47_INSPECT, UseDecrement() != FALSE);
+		m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 20.0f;
+		m_pPlayer->pev->button &= ~IN_USE;
+	}
+	return CBasePlayerWeapon::ItemPostFrame();
+}
